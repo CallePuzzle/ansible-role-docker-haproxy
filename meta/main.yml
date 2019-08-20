@@ -2,9 +2,11 @@
 dependencies:
   - name: geerlingguy.pip
     src: geerlingguy.pip
+    when: molecule_scenario_directory is not defined
 
   - name: geerlingguy.docker
     src: geerlingguy.docker
+    when: molecule_scenario_directory is not defined
 
 galaxy_info:
   author: César M. Cristóbal

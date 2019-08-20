@@ -10,12 +10,15 @@
     haproxy_ports:
       - 80:80
 
-  roles:
-    - { role: ansible-role-haproxy, tags: ['haproxy'] }
+  pre_tasks:
+    - import_role:
+        name: geerlingguy.pip
 
-  tasks:
     - name: Start httpd
       docker_container:
         name: httpd
         restart_policy: always
         image: httpd:2.4
+
+  roles:
+    - { role: ansible-role-docker-haproxy, tags: ['haproxy'] }

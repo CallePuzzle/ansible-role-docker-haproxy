@@ -1,12 +1,12 @@
 ---
+sudo: required
 language: python
-
 services:
   - docker
-
 before_install:
-  - docker pull sysbitban/molecule-ci-vagrant
-  - docker run sysbitban/molecule-ci-vagrant -v .:/test/ /bin/sh -c "cd /test; molecule test"
-
+  - sudo apt-get -qq update
+install:
+  - pip install ansible
+  - pip install molecule[docker]
 script:
   - molecule test
