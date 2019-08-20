@@ -1,12 +1,12 @@
 ---
-sudo: required
 language: python
+
 services:
   - docker
+
 before_install:
-  - sudo apt-get -qq update
-install:
-  - pip install molecule
-  - pip install python-vagrant
+  - docker pull sysbitban/molecule-ci-vagrant
+  - docker run sysbitban/molecule-ci-vagrant -v .:/test/ /bin/sh -c "cd /test; molecule test"
+
 script:
   - molecule test
