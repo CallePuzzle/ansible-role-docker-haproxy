@@ -12,6 +12,10 @@ galaxy_info:
   company: "Callepuzzle"
   license: "license (BSD, MIT)"
   min_ansible_version: 2.7
+  galaxy_tags:
+    - haproxy
+    - docker
+    - container
   platforms:
     - name: Debian
       versions:
