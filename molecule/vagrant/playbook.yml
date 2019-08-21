@@ -30,6 +30,6 @@
     - name: Download test localhost
       uri:
         url: http://localhost
-        return_content: yes
+        return_content: true
       register: this
       failed_when: "'It works!' not in this.content"
