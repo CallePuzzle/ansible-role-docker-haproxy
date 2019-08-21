@@ -5,6 +5,7 @@
   become_method: sudo
 
   vars:
+    molecule_scenario_no_deps: true
     haproxy_links:
       - httpd
     haproxy_ports:
@@ -22,3 +23,9 @@
 
   roles:
     - { role: ansible-role-docker-haproxy, tags: ['haproxy'] }
+
+  tasks:
+    - name: Test connection
+      set_fact: content="{{ lookup('url', 'http://localhost/') }}"
+      failed_when: "not 'It works!' in content"
+      delegate_to: localhost
