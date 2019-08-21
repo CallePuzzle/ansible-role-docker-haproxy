@@ -25,7 +25,10 @@
     - { role: ansible-role-docker-haproxy, tags: ['haproxy'] }
 
   tasks:
-    - name: Test connection
-      set_fact: content="{{ lookup('url', 'http://localhost/') }}"
-      failed_when: "not 'It works!' in content"
+    - name: Download test localhost
+      uri:
+        url: http://localhost
+        return_content: yes
+      register: this
+      failed_when: "'It works!' not in this.content"
       delegate_to: localhost
