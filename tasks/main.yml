@@ -22,3 +22,5 @@
     ports: "{{ haproxy_ports | default(omit) }}"
     log_driver: "{{ haproxy_log_driver | default(omit) }}"
     log_options: "{{ haproxy_log_options | default(omit) }}"
+  tags:
+    - run-haproxy
