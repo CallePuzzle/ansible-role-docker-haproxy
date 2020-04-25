@@ -11,8 +11,8 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v1
 
-    name: Install molecule version 2
-    run: pip install "molecule[docker] <3"
+      - name: Install molecule version 2
+        run: pip install "molecule[docker] <3"
 
-    name: Run test
-    run: molecule --debug test -s docker
+      - name: Run test
+        run: molecule --debug test -s docker
