@@ -9,8 +9,8 @@ None.
 Role Variables
 --------------
 
-* `haproxy_links`: List of links with others services, parameter links in docker_container_module.
-* `haproxy_ports`: List of ports to publish from the container to the host, parameter published_ports in docker_container_module.
+* `haproxy_links`: List of links with others services, parameter links in [docker_container_module](https://docs.ansible.com/ansible/latest/modules/docker_container_module.html#parameter-links).
+* `haproxy_ports`: List of ports to publish from the container to the host, parameter published_ports in [docker_container_module](https://docs.ansible.com/ansible/latest/modules/docker_container_module.html#parameter-published_ports).
 
 Dependencies
 ------------
