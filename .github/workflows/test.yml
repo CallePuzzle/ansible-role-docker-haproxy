@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v1
 
       - name: Install molecule version 2
-        run: pip install "molecule[docker] <3"
+        run: pip3 install "molecule[docker] <3"
 
       - name: Run test
         run: molecule --debug test -s docker
