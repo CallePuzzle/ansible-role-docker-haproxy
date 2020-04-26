@@ -9,10 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
-      - run: virtualenv molecule
-      #- name: Install molecule version 2
-      #  run: pip3 install "molecule[docker] <3"
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
 
-      #- name: Run test
-      #  run: molecule --debug test -s docker
+      - name: Update pip, install molecule, test
+        run: |
+          python -m pip install --upgrade pip
+          pip install "molecule[docker] <3"
+          molecule --debug test -s docker
