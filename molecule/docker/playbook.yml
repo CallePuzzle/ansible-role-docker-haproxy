@@ -32,3 +32,4 @@
       register: this
       failed_when: "'It works!' not in this.content"
       delegate_to: localhost
+      become: false
