@@ -14,7 +14,7 @@
   docker_container:
     name: haproxy
     restart_policy: always
-    image: haproxy:1.9
+    image: "haproxy:{{ haproxy_version }}"
     restart: "{{ haproxy_restart |  default(false) }}"
     volumes:
       - /usr/local/etc/haproxy:/usr/local/etc/haproxy:ro
