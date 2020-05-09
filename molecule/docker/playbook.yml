@@ -6,8 +6,9 @@
 
   vars:
     molecule_scenario_no_deps: true
+    haproxy_cfg_template_path: "{{ playbook_dir }}/templates/"
     haproxy_links:
-      - httpd
+      - httpd-docker
     haproxy_ports:
       - 80:80
 
@@ -17,9 +18,11 @@
 
     - name: Start httpd
       docker_container:
-        name: httpd
+        name: httpd-docker
         restart_policy: always
         image: httpd:2.4
+    - debug:
+        var: haproxy_cfg_template_path
 
   roles:
     - { role: ansible-role-docker-haproxy, tags: ['haproxy'] }
